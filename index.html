@@ -3,421 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NGUYEN THI HONG DAO - Resume</title>
-  <style>
-    :root {
-      --bg: #050505;
-      --panel: #101010;
-      --panel-2: #151515;
-      --ink: #f5f5f5;
-      --muted: #b8b8b8;
-      --line: rgba(255,255,255,.12);
-      --accent: #f4c430;
-      --accent-soft: rgba(244,196,48,.12);
-      --chip: #202020;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(244,196,48,.10), transparent 30%),
-        linear-gradient(180deg, #000 0%, #070707 45%, #000 100%);
-      line-height: 1.65;
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .page {
-      max-width: 1160px;
-      margin: 36px auto;
-      padding: 0 20px 52px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0a0a0a 0%, #171717 55%, #000 100%);
-      border: 1px solid var(--line);
-      color: #fff;
-      border-radius: 30px;
-      padding: 42px;
-      box-shadow: 0 28px 90px rgba(0,0,0,.45);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -100px;
-      top: -120px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: rgba(244,196,48,.10);
-      filter: blur(2px);
-    }
-
-    .hero-top {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 140px 1fr 270px;
-      gap: 26px;
-      align-items: start;
-    }
-
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 2px solid rgba(244,196,48,.78);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
-        #111;
-      display: grid;
-      place-items: center;
-      color: #d6d6d6;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-align: center;
-      overflow: hidden;
-      box-shadow: 0 0 0 8px rgba(255,255,255,.04);
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .name {
-      font-size: clamp(34px, 5vw, 56px);
-      margin: 0 0 10px;
-      letter-spacing: .02em;
-      line-height: 1.1;
-    }
-
-    .role {
-      font-size: 19px;
-      margin: 0 0 18px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .summary {
-      max-width: 720px;
-      margin: 0;
-      color: #dedede;
-      font-size: 16px;
-    }
-
-    .contact {
-      background: rgba(255,255,255,.055);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px 20px;
-      backdrop-filter: blur(8px);
-    }
-
-    .contact div { margin: 6px 0; color: #ececec; font-size: 14px; }
-    .contact span { color: var(--muted); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
-
-    .badges {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    .badge {
-      border: 1px solid rgba(244,196,48,.34);
-      background: var(--accent-soft);
-      color: #ffe58a;
-      border-radius: 999px;
-      padding: 8px 13px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: rgba(16,16,16,.95);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 18px 50px rgba(0,0,0,.25);
-    }
-
-    h2 {
-      margin: 0 0 16px;
-      font-size: 20px;
-      letter-spacing: .04em;
-      border-left: 4px solid var(--accent);
-      padding-left: 12px;
-    }
-
-    h3 { margin: 20px 0 8px; font-size: 16px; color: #fff; }
-    p { margin: 0 0 12px; color: #d8d8d8; }
-    ul { margin: 0; padding-left: 18px; color: #d8d8d8; }
-    li { margin: 7px 0; }
-
-    .timeline { display: grid; gap: 16px; }
-    .item {
-      border-left: 2px solid rgba(244,196,48,.42);
-      padding-left: 16px;
-    }
-    .period { color: var(--accent); font-size: 13px; font-weight: 700; }
-    .title { font-weight: 800; color: #fff; margin-top: 3px; }
-    .sub { color: var(--muted); font-size: 14px; margin-top: 3px; }
-
-    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-    .chip {
-      background: var(--chip);
-      border: 1px solid var(--line);
-      color: #e5e5e5;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 13px;
-    }
-
-    .project {
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      margin-top: 14px;
-    }
-
-    .project strong { color: #fff; }
-    .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
-
-    .skill-group { margin-bottom: 18px; }
-    .skill-group strong { display: block; margin-bottom: 8px; color: #fff; }
-
-    .footer {
-      text-align: center;
-      color: #777;
-      font-size: 12px;
-      margin-top: 26px;
-    }
-
-    @media (max-width: 880px) {
-      .hero { padding: 30px; }
-      .hero-top { grid-template-columns: 1fr; }
-      .avatar { width: 108px; height: 108px; }
-      .grid { grid-template-columns: 1fr; }
-    }
-
-    @media print {
-      body { background: #fff; color: #111; }
-      .page { margin: 0; max-width: none; padding: 0; }
-      .hero, .card { box-shadow: none; background: #fff; color: #111; border-color: #ddd; }
-      .role, .period, a { color: #111; }
-      .summary, p, li, .sub, .contact div, .note { color: #333; }
-      .badge, .chip { color: #111; border-color: #ddd; background: #f7f7f7; }
-      .avatar { color: #555; border-color: #999; }
-    }
-  </style>
+  <meta name="description" content="NGUYEN THI HONG DAO - Senior BrSE / Onsite Leader Portfolio Resume" />
+  <title>NGUYEN THI HONG DAO | Senior BrSE Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="hero-top">
-        <div class="avatar">
-          <!-- Replace this block with: <img src="avatar.jpg" alt="NGUYEN THI HONG DAO" /> -->
-          AVATAR
-        </div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
-        <div>
-          <h1 class="name">NGUYEN THI HONG DAO</h1>
-          <p class="role">Senior BrSE / Onsite Leader / Sub-DM</p>
-          <p class="summary">
-            ITコミュニケーター2年を経て、約6年以上ブリッジSEとして金融・Web・業務システム開発に従事。
-            要件定義、基本設計、顧客折衝、オフショア開発管理、品質管理、チームマネジメントまで一貫して担当。
-            日本現地勤務経験を活かし、日本顧客とベトナム開発チームの橋渡し役としてプロジェクト推進を支援。
-          </p>
-        </div>
+  <aside class="profile-card">
+    <div class="avatar-frame">
+      <div class="avatar-placeholder">PHOTO</div>
+    </div>
+    <p class="small-label">Senior BrSE Portfolio</p>
+    <h1>NGUYEN THI<br>HONG DAO</h1>
+    <p class="role">Senior BrSE / Onsite Leader</p>
+    <p class="location">Ho Chi Minh, Vietnam</p>
+    <a class="email" href="mailto:hongdao.jp@gmail.com">hongdao.jp@gmail.com</a>
+    <div class="social-row">
+      <a href="#portfolio" aria-label="Portfolio">AI</a>
+      <a href="#experience" aria-label="Experience">EX</a>
+      <a href="#skills" aria-label="Skills">SK</a>
+    </div>
+    <a class="primary-button" href="mailto:hongdao.jp@gmail.com">Contact Me</a>
+    <p class="updated">Updated: 2026.06.22</p>
+  </aside>
 
-        <div class="contact">
-          <div><span>Email</span><a href="mailto:hongdao.jp@gmail.com">hongdao.jp@gmail.com</a></div>
-          <div><span>Phone</span>0902 294 492</div>
-          <div><span>Location</span>Ho Chi Minh City, Vietnam</div>
-          <div><span>Available from</span>2026年6月29日</div>
-        </div>
-      </div>
+  <nav class="side-nav" aria-label="Section navigation">
+    <a href="#home" class="active"><span>Home</span></a>
+    <a href="#about"><span>About</span></a>
+    <a href="#experience"><span>Experience</span></a>
+    <a href="#portfolio"><span>Portfolio</span></a>
+    <a href="#skills"><span>Skills</span></a>
+    <a href="#certifications"><span>Certifications</span></a>
+    <a href="#contact"><span>Contact</span></a>
+  </nav>
 
-      <div class="badges">
-        <div class="badge">JLPT N1</div>
-        <div class="badge">BrSE 6+ Years</div>
-        <div class="badge">Japan Onsite</div>
-        <div class="badge">Requirement Definition</div>
-        <div class="badge">Team Leadership</div>
-        <div class="badge">Gen AI Utilization</div>
+  <main class="content">
+    <section id="home" class="section hero reveal">
+      <p class="section-kicker">Portfolio Resume</p>
+      <h2>Bridging Japanese customers and offshore teams through requirements, design, and delivery.</h2>
+      <p class="lead">
+        日本語専攻出身としてキャリアをスタートし、2年間のITコミュニケーターを経て、約6年以上BrSEとして金融・Web・業務システム開発に従事。現在はオンサイトリーダーとして、顧客折衝、要件定義、チーム管理、提案活動支援を担当。
+      </p>
+      <div class="hero-stats">
+        <div><strong>6+</strong><span>Years as BrSE</span></div>
+        <div><strong>N1</strong><span>JLPT Japanese</span></div>
+        <div><strong>6</strong><span>Onsite Team Led</span></div>
+        <div><strong>15+</strong><span>Members Mentored</span></div>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>Profile</h2>
+    <section id="about" class="section reveal">
+      <p class="section-kicker">About</p>
+      <h3>職務概要</h3>
+      <div class="card big-text">
         <p>
-          日本語専攻出身としてキャリアをスタートし、ITコミュニケーター、BrSE、オンサイトリーダーとして段階的に経験を積んでまいりました。
-          金融系システム、資産運用サービス、ローンサービス、業務管理システムなど幅広い業務領域を経験しており、
-          技術面だけでなく業務理解を踏まえた課題分析・提案を強みとしております。
+          要件定義、基本設計、顧客折衝、オフショア開発管理、品質管理まで一貫して担当し、日本顧客とベトナム開発チームの橋渡し役としてプロジェクト推進を支援しています。
         </p>
-
-        <h2>Key Achievements</h2>
-        <ul>
-          <li>約6名規模のオンサイトチームをリードし、進捗管理・品質管理・課題管理を実施。</li>
-          <li>約15名以上の若手メンバーに対する教育・メンタリングを担当。</li>
-          <li>BrSEおよびエンジニア採用活動に参加し、書類選考・面接対応・評価フィードバックを実施。</li>
-          <li>日本顧客との要件定義、基本設計、運用保守に継続的に参画し、オフショアチームとの連携を推進。</li>
-          <li>新規提案活動に参画し、提案資料作成、工数見積、体制検討を支援。</li>
-          <li>日本国内およびベトナム間のBiz Tripを年間複数回対応。</li>
-          <li>生成AI（ChatGPT、Claude等）を活用し、業務支援・プロトタイプを作成。</li>
-        </ul>
-
-        <h2>Experience</h2>
-        <div class="timeline">
-          <div class="item">
-            <div class="period">2024年8月 - 2026年5月</div>
-            <div class="title">FPTジャパンホールディングス株式会社</div>
-            <div class="sub">オンサイトリーダー / BrSE・Sub-DM</div>
-            <ul>
-              <li>住友重機械エンバイロメントの社内各種システムを担当。</li>
-              <li>要件定義、基本設計・詳細設計、運用・保守、関係部署・ベンダーとの調整を担当。</li>
-              <li>オンサイトチーム管理、オフショア連携、リスク管理、改善活動を推進。</li>
-              <li>国内・国際Biz Trip対応、UAT、顧客先での要件定義・設計調整を担当。</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="period">2020年11月 - 2024年7月</div>
-            <div class="title">Teqnological Asia株式会社</div>
-            <div class="sub">BrSE</div>
-            <ul>
-              <li>FXトレードアプリ、金融会社LP、資産運用ポートフォリオサービス、ローンサービス等を担当。</li>
-              <li>機能分析、ワイヤーフレーム設計、基本設計、見積、進捗フォローを担当。</li>
-              <li>短期Onsite対応として、日本顧客とのKickoff MTG、要件・非機能要件ヒアリングを実施。</li>
-              <li>人材育成、採用活動支援、面接対応にも参加。</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="period">2018年10月 - 2020年10月</div>
-            <div class="title">JVIT株式会社</div>
-            <div class="sub">ITコミュニケーター</div>
-            <ul>
-              <li>通訳・翻訳、仕様確認、ドキュメント理解・伝達、メンテナンス案件の進行管理を担当。</li>
-              <li>CampingCarスポット推薦ウェブ、日本のeCommerce案件、試験自動採点システム等に参画。</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="period">2017年7月 - 2018年7月</div>
-            <div class="title">エースコックベトナム株式会社</div>
-            <div class="sub">本部長のアシスタント・秘書</div>
-            <ul>
-              <li>スケジュール調整、国内外出張手配、資料作成、翻訳・通訳、各部署サポートを担当。</li>
-            </ul>
-          </div>
-        </div>
+        <p>
+          金融系システム、資産運用サービス、ローンサービス、業務管理システムなど幅広い業務領域を経験し、技術面だけでなく業務理解を踏まえた課題分析・提案を強みとしています。
+        </p>
       </div>
-
-      <aside class="card">
-        <h2>Strengths</h2>
-        <div class="chips">
-          <span class="chip">日本顧客折衝</span>
-          <span class="chip">要件定義</span>
-          <span class="chip">基本設計</span>
-          <span class="chip">オフショア管理</span>
-          <span class="chip">品質管理</span>
-          <span class="chip">ベンダー調整</span>
-          <span class="chip">チームマネジメント</span>
-          <span class="chip">人材育成</span>
-          <span class="chip">採用面接対応</span>
-          <span class="chip">Biz Trip対応</span>
-        </div>
-
-        <h2>AI Utilization</h2>
-        <div class="project">
-          <strong>Vibe Coding・AIサンプルプロジェクト</strong>
-          <p>2048Diamond Game 2D</p>
-          <p><a href="https://diamond-fdd9e.web.app/" target="_blank" rel="noopener">diamond-fdd9e.web.app</a> <span class="note">Mobile view</span></p>
-          <ul>
-            <li>生成AI（Cursor等）を活用したプロトタイプを作成。</li>
-            <li>要件整理、画面イメージ作成、プロンプト設計、回答品質検証を実施。</li>
-            <li>業務適用可能性および生成AIを活用した業務効率化を検証。</li>
-          </ul>
-          <div class="note">Tools/Tech: Cursor Pro Composer 2.5, ChatGPT Plus 5.5, Unity, C#, Git</div>
-        </div>
-
-        <h2>Skills</h2>
-        <div class="skill-group">
-          <strong>上流工程</strong>
-          <div class="chips">
-            <span class="chip">要件定義</span><span class="chip">業務分析</span><span class="chip">基本設計</span><span class="chip">ワイヤーフレーム</span><span class="chip">仕様調整</span><span class="chip">UAT支援</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <strong>プロジェクト管理</strong>
-          <div class="chips">
-            <span class="chip">進捗管理</span><span class="chip">課題管理</span><span class="chip">品質管理</span><span class="chip">リスク管理</span><span class="chip">工数見積</span><span class="chip">オフショア管理</span><span class="chip">ベンダー調整</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <strong>経験技術・環境</strong>
-          <div class="chips">
-            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">Ruby on Rails</span><span class="chip">Golang</span><span class="chip">MySQL</span><span class="chip">MongoDB</span>
-          </div>
-          <p class="note">上記技術を使用したプロジェクトにBrSEとして参画。実装担当ではなく、仕様調整・設計支援・顧客折衝・開発管理を担当。</p>
-        </div>
-
-        <div class="skill-group">
-          <strong>Tools</strong>
-          <div class="chips">
-            <span class="chip">Jira</span><span class="chip">Backlog</span><span class="chip">Redmine</span><span class="chip">Trello</span><span class="chip">ClickUp</span><span class="chip">Teams</span><span class="chip">Slack</span><span class="chip">Chatwork</span><span class="chip">Zoom</span><span class="chip">Google Meet</span>
-          </div>
-        </div>
-
-        <h2>Certificates</h2>
-        <ul>
-          <li>2025年4月 Gen AIオンラインコース（Microsoft Copilot、Udemy）</li>
-          <li>2024年10月 コンプライアンス＆情報セキュリティ研修（2か月毎/FPT）</li>
-          <li>2024年7月 日本語能力試験 N1</li>
-          <li>2023年12月 BJTビジネス日本語能力テスト J2</li>
-          <li>2023年10月 ITパスポート</li>
-          <li>2020年10月 BA＆PM Collaboration資格</li>
-          <li>2020年9月 テスト基盤資格</li>
-          <li>2015年7月 日本語能力試験 N2</li>
-        </ul>
-
-        <h2>Education</h2>
-        <ul>
-          <li>2017年6月 国立ホーチミン市師範大学 日本語学部 卒業</li>
-          <li>2016年4月 国立三重大学 交換留学生として卒業</li>
-          <li>2020年8月 自然科学大学 Eラーニング 入学（保留）</li>
-        </ul>
-      </aside>
+      <div class="highlight-grid">
+        <div class="mini-card">★ 日本現地勤務経験</div>
+        <div class="mini-card">★ 要件定義・基本設計</div>
+        <div class="mini-card">★ オンサイトリーダー</div>
+        <div class="mini-card">★ Offshore Coordination</div>
+      </div>
     </section>
 
-    <div class="footer">Last updated: 2026年6月17日</div>
-  </main>
+    <section id="experience" class="section reveal">
+      <p class="section-kicker">Experience</p>
+      <h3>Career Timeline</h3>
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="year">2024.08 - 2026.05</span>
+          <div class="timeline-card">
+            <h4>FPTジャパンホールディングス株式会社</h4>
+            <p class="tagline">オンサイトリーダー / BrSE・Sub-DM</p>
+            <ul>
+              <li>住友重機械エンバイロメント社内各種システムを担当</li>
+              <li>要件定義、基本設計・詳細設計、運用保守、関係部署・ベンダー調整</li>
+              <li>約6名規模のオンサイトチームをリードし、進捗・品質・課題を管理</li>
+              <li>新規提案活動、人材育成、採用面接支援、年間4回以上のBiz Trip対応</li>
+            </ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span class="year">2020.11 - 2024.07</span>
+          <div class="timeline-card">
+            <h4>Teqnological Asia株式会社</h4>
+            <p class="tagline">BrSE</p>
+            <ul>
+              <li>FXトレードアプリ、資産運用サービス、ローンサービス等を担当</li>
+              <li>機能分析、ワイヤーフレーム設計、見積、進捗フォロー</li>
+              <li>短期オンサイト対応：Kickoff、要件定義、顧客ヒアリング</li>
+            </ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span class="year">2018.10 - 2020.10</span>
+          <div class="timeline-card">
+            <h4>JVIT株式会社</h4>
+            <p class="tagline">ITコミュニケーター</p>
+            <ul>
+              <li>通訳・翻訳、仕様確認、開発者への説明</li>
+              <li>メンテナンス案件管理、テスト支援</li>
+              <li>CampingCar、eCommerce、試験自動採点、不動産Web等を担当</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="achievements" class="section reveal">
+      <p class="section-kicker">Achievements</p>
+      <h3>主な実績</h3>
+      <div class="achievement-grid">
+        <div class="achievement-card"><strong>6名</strong><span>オンサイトチームをリード</span></div>
+        <div class="achievement-card"><strong>15名+</strong><span>若手メンバー教育・メンタリング</span></div>
+        <div class="achievement-card"><strong>4回+</strong><span>年間Biz Trip対応</span></div>
+        <div class="achievement-card"><strong>採用支援</strong><span>BrSE候補者の面接・評価支援</span></div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section reveal">
+      <p class="section-kicker">Portfolio</p>
+      <h3>Featured Experience & Projects</h3>
+      <div class="portfolio-grid">
+        <article class="project-card featured">
+          <div class="project-cover">Enterprise Systems</div>
+          <div class="project-body">
+            <p class="project-meta">FPT Japan / Onsite Leader</p>
+            <h4>住友重機械エンバイロメント 社内各種システム</h4>
+            <p>水処理・事業所運転管理、機種見積管理、整番管理、ワークフロー・資産管理、セキュリティー・インフラ管理など複数システムを対象に、要件定義から運用保守まで担当。</p>
+            <div class="chips"><span>Requirement Definition</span><span>Basic Design</span><span>Vendor Control</span><span>Sub-DM</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-cover">Team Lead</div>
+          <div class="project-body">
+            <p class="project-meta">FPT Japan / Management</p>
+            <h4>オンサイトチーム管理・提案活動支援</h4>
+            <p>約6名規模のオンサイトチームをリード。タスクアサイン、進捗・品質・課題管理、作業量見積、納品スケジュール管理、新規提案の構成検討・工数見積・体制案作成を支援。</p>
+            <div class="chips"><span>Team Management</span><span>Proposal</span><span>PMO Support</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-cover">Finance Web</div>
+          <div class="project-body">
+            <p class="project-meta">Teqnological Asia / BrSE</p>
+            <h4>ウェルスキャンバス（PC/SP）</h4>
+            <p>資産運用ポートフォリオのシミュレーション・アドバイスサービス。機能フロー分析、ワイヤーフレーム設計、基本設計を担当。</p>
+            <div class="chips"><span>Finance</span><span>Wireframe</span><span>Basic Design</span></div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-cover">Mobile App</div>
+          <div class="project-body">
+            <p class="project-meta">Teqnological Asia / BrSE</p>
+            <h4>FXトレードアプリ</h4>
+            <p>デモトレードおよびリアルタイムチャート機能を含むトレードアプリ。機能分析、進捗レポート、設計内容説明、メンテナンスを担当。</p>
+            <div class="chips"><span>FX</span><span>Android/iOS</span><span>Ruby on Rails</span></div>
+          </div>
+        </article>
+        <article class="project-card ai-card">
+          <div class="project-cover">AI Prototype</div>
+          <div class="project-body">
+            <p class="project-meta">AI活用・検証実績</p>
+            <h4>2048Diamond Game 2D</h4>
+            <p>生成AI（Cursor等）を活用したプロトタイプ。2048を題材にしたパズルゲームとして、ゲームロジック、UI構築、入力処理、アニメーション、WebGLビルドを検証。</p>
+            <a href="https://diamond-fdd9e.web.app/" target="_blank" rel="noopener">View Sample</a>
+            <div class="chips"><span>Cursor Pro Composer2.5</span><span>ChatGPT Plus 5.5</span><span>Unity 6</span><span>C#</span><span>WebGL</span><span>Git</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <p class="section-kicker">Skills</p>
+      <h3>Core Competencies</h3>
+      <div class="skill-columns">
+        <div class="skill-card"><h4>上流工程</h4><p>要件定義 / 業務分析 / 基本設計・詳細設計レビュー / ワイヤーフレーム作成 / 仕様調整 / 受入テスト（UAT）支援</p></div>
+        <div class="skill-card"><h4>プロジェクト管理</h4><p>進捗管理 / 課題管理 / 品質管理 / リスク管理 / 工数見積 / オフショア管理 / ベンダー調整</p></div>
+        <div class="skill-card"><h4>開発知識・DB</h4><p>HTML / CSS / JavaScript / Java / C++ / Ruby on Rails / Golang / MySQL / MongoDB</p><small>※上記技術を使用したプロジェクトにBrSEとして参画。実装担当ではなく、仕様調整・設計支援・顧客折衝・開発管理を担当。</small></div>
+        <div class="skill-card"><h4>Tools / Communication</h4><p>Jira / Backlog / Redmine / Trello / ClickUp / Microsoft Teams / Slack / Chatwork / Mattermost / Zoom / Google Meet</p></div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section reveal">
+      <p class="section-kicker">Certifications</p>
+      <h3>Qualifications & Training</h3>
+      <div class="cert-list">
+        <div><span>2025.04</span>Gen AI オンラインコース（Microsoft Copilot、Udemy）</div>
+        <div><span>2024.10</span>コンプライアンス＆情報セキュリティ研修を受講（2か月毎 / FPT）</div>
+        <div><span>2024.07</span>日本語能力試験 N1</div>
+        <div><span>2023.12</span>BJTビジネス日本語能力テスト J2</div>
+        <div><span>2023.10</span>ITパスポート</div>
+        <div><span>2020.10</span>BA＆PM Collaboration資格</div>
+        <div><span>2020.09</span>テスト基盤資格</div>
+        <div><span>2015.07</span>日本語能力試験 N2</div>
+      </div>
+    </section>
+
+<section id="contact" class="section reveal contact-section">
+      <p class="section-kicker">Contact</p>
+      <h3>Let’s Work Together</h3>
+      <p>Senior BrSE / Lead BrSE / PMO / Sub PM related opportunities are welcome.</p>
+      <div class="contact-box-grid">
+        <div class="contact-box">
+          <span>Email</span>
+          <a class="big-mail" href="mailto:hongdao.jp@gmail.com">hongdao.jp@gmail.com</a>
+        </div>
+        <div class="contact-box">
+          <span>Location</span>
+          <strong>Ho Chi Minh City, Vietnam</strong>
+        </div>
+        <div class="contact-box">
+          <span>Available From</span>
+          <strong>2026年6月29日（月）</strong>
+        </div>
+      </div>
+</section>
+
+  <script src="script.js"></script>
 </body>
 </html>
