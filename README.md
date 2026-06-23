@@ -6,7 +6,7 @@ This is a minimal, professional one-page resume site for **Dao Nguyen**.
 1. Create a new repo named: `username.github.io`
 2. Upload all files in this folder to the repo root.
 3. Commit & push. Your site will be live at `https://username.github.io/`.
--> https://hongdao-jp.github.io/.github.io/
+-> https://hongdao-jp.github.io/resume/
 
 ## Customize
 - `index.html`: edit your name, contacts, sections.
